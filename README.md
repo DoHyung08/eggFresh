@@ -17,7 +17,7 @@ kerner_size = k, stride = s, padding = p 인 Conv1d는 `Conv1d(k,s,p)` 로 표�
 
 1. BottleNeck
 
-입력의 $ \frac{1}{4} $ 의 채널을 갖도록 `Conv1d(1,1,0)`로 구성된 BottleNeck 레이어를 통과하여 BT에 저장한다.   
+입력의 $` \frac{1}{4} `$ 의 채널을 갖도록 `Conv1d(1,1,0)`로 구성된 BottleNeck 레이어를 통과하여 BT에 저장한다.   
 이때 입력의 1/4이 0일 경우 기존 입력 차원과 동일하게 유지하고 BottleNeck는 nn.Identitiy로 대체한다.
 
 
@@ -29,7 +29,7 @@ kerner_size = k, stride = s, padding = p 인 Conv1d는 `Conv1d(k,s,p)` 로 표�
 
 3. Concat
 
-각각 출력 차원 (출력 채널 수) 의 $ \frac{1}{4} $ 채널 수를 갖는 x1, x2, x3, x4를 채널 차원으로 `Concat`연산 취하여 out에 저장한다.
+각각 출력 차원 (출력 채널 수) 의 $` \frac{1}{4} `$ 채널 수를 갖는 x1, x2, x3, x4를 채널 차원으로 `Concat`연산 취하여 out에 저장한다.
 
 
 4. 출력 
@@ -78,6 +78,8 @@ ReLU를 통과한다.
 ReLU를 통과한다.   
 입력 차원 32에서 출력 차원 `num_classes`를 가지는 세 번째 FC layer를 거친다.   
 softmax를 거쳐 최종적으로 각 레이블에 해당할 확률을 출력한다.
+
+## 학습 과정
 
 
 
